@@ -43,6 +43,7 @@ html {
   height: 520px;
   display: flex;
   border-radius: 30px;
+  box-shadow: 10px 10px 30px hsl(241, 81%, 54%, 0.1);
 }
 
 #result-box {
@@ -81,6 +82,10 @@ html {
   font-size: 14px;
   font-weight: 500;
   color: hsl(241, 100%, 89%);
+}
+#summary-box {
+  box-shadow: 10px 10px 30px hsl(241, 81%, 54%, 0.1);
+  margin: 24px;
 }
 
 #result-rank {
