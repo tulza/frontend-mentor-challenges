@@ -12,38 +12,45 @@
   --Light-lavender: hsl(241, 100%, 89%);
   --Dark-gray-blue: hsl(224, 30%, 27%);
 }
+
 * {
   margin: 24px;
   font-family: "Hanken Grotesk", sans-serif;
   font-family: "Outfit", sans-serif;
   font-size: 18px;
 }
-body {
+
+svg,
+span,
+.summary-box div,
+html,
+#result-box,
+#sum-of-score,
+#sum-of-total,
+#your-result {
+  margin: 0;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-svg {
-  margin: 0;
-}
-span {
-  margin: 0;
-}
 
 #result-area {
-  display: flex;
-  outline: 2px solid black;
   height: 520px;
+  display: flex;
   border-radius: 30px;
 }
 
 #result-box {
-  margin: 0;
-  display: block;
-  padding: 50px;
-  border-radius: 30px;
   width: 300px;
   height: calc(300px * 1.4);
+  display: block;
+  border-radius: 30px;
+  padding: 50px;
   text-align: center;
   background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
 }
@@ -53,35 +60,33 @@ span {
   margin-right: auto;
   margin-left: auto;
 
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
-  border-radius: 100%;
   width: 200px;
   height: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
 }
 
 #sum-of-score {
-  margin: 0;
   font-size: 64px;
   font-weight: 800;
   color: white;
 }
 
 #sum-of-total {
-  margin: 0;
   font-size: 14px;
   font-weight: 500;
   color: hsl(241, 100%, 89%);
 }
 
 #result-rank {
-  color: white;
-  font-weight: 700;
   font-size: 32px;
+  font-weight: 700;
+  color: white;
 }
 
 #result-description {
@@ -90,25 +95,9 @@ span {
 }
 
 #your-result {
-  margin: 0;
   font-size: 24px;
   font-weight: 700;
   color: var(--Light-lavender);
-}
-
-#continue-button {
-  color: white;
-  width: 80%;
-  height: 30px;
-  padding: 10px;
-  line-height: 30px;
-  border-radius: 100px;
-  text-align: center;
-  background: linear-gradient(var(--Dark-gray-blue), var(--Dark-gray-blue));
-}
-
-#continue-button:hover {
-  background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
 }
 
 /*
@@ -116,9 +105,9 @@ Summary result css
 */
 
 #summary {
-  color: var(--Dark-gray-blue);
   font-size: 24px;
   font-weight: 800;
+  color: var(--Dark-gray-blue);
 }
 
 #reaction {
@@ -139,18 +128,15 @@ Summary result css
 }
 
 .summary-box {
-  display: flex;
-  padding: 12px;
   height: 40px;
+  margin: 12px;
+  padding: 12px;
   border-radius: 12px;
-  font-weight: 500;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 12px;
+  font-weight: 500;
   color: var(--Dark-gray-blue);
-}
-.summary-box div {
-  margin: 0;
 }
 
 .summary-score {
@@ -160,17 +146,36 @@ Summary result css
 
 .summary-total-score {
   font-weight: 700;
-  color: hsla(224, 30%, 27%, 50%);
   padding-left: 8px;
+  color: hsla(224, 30%, 27%, 50%);
+}
+
+#continue-button {
+  background-color: var(--Dark-gray-blue);
+  width: 80%;
+  height: 30px;
+  padding: 10px;
+  line-height: 30px;
+  border-radius: 100px;
+  text-align: center;
+  color: white;
+}
+
+#continue-button:hover {
+  background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
 }
 
 .center {
   display: flex;
   justify-content: center;
   align-self: center;
-  gap: 10px;
 }
 
+/*add gap between flex element*/
+.gap-10 {
+  gap: 10px;
+}
+/*frontend mentor default css*/
 .attribution {
   margin: 0;
   font-size: 11px;
@@ -179,4 +184,15 @@ Summary result css
 .attribution a {
   margin: 0;
   color: hsl(228, 45%, 44%);
+}
+
+/*phone responsive css*/
+@media screen and (max-width: 1000px) {
+  html {
+    align-items: flex-start;
+  }
+
+  #result-area {
+    display: block;
+  }
 }
