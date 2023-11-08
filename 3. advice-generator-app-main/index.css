@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Manrope:wght@800&family=Outfit:wght@400;700&display=swap");
+
+:root {
+  /*Primary*/
+  --Light-Cyan: hsl(193, 38%, 86%);
+  --Neon-Green: hsl(150, 100%, 66%);
+
+  /*Neutral*/
+  --Grayish-Blue: hsl(217, 19%, 38%);
+  --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+  --Dark-Blue: hsl(218, 23%, 16%);
+}
+
+* {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  background-color: var(--Dark-Blue);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#advice-box {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px;
+  background-color: var(--Dark-Grayish-Blue);
+  border-radius: 20px;
+}
+
+#advice-header {
+  color: var(--Neon-Green);
+  font-size: 12px;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+}
+
+#advice-no {
+  font-size: 12px;
+}
+
+#advice-quote {
+  padding: 24px;
+  color: var(--Light-Cyan);
+  letter-spacing: 1.5px;
+}
+
+#randomise-button {
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  transform: translateY(-35px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Neon-Green);
+  transition: 0.5s box-shadow;
+}
+#randomise-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 40px 5px var(--Neon-Green);
+}
+
+#break-line {
+  margin: 20px 0 30px 0;
+}
+
+#randomise-button svg {
+  transform: scale(1.25);
+}
+
+/*attribute here*/
+.attribution {
+  position: absolute;
+  align-self: flex-end;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  font-size: 11px;
+  color: hsl(228, 45%, 44%);
+}
