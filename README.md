@@ -1,4 +1,4 @@
-my frontend mentor challenges collection website
+my frontend mentor challenges collection website:
 https://tulza.github.io/frontend-mentor-challenges/
 
 # frontend mentor challenges

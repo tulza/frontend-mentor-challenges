@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="calculator-box" className="bg-black">
+      <div id="inputs-field">
+        <!-- input field area -->
+        <p class="date-label">
+          Day<br />
+          <input type="text" class="date-input" placeholder="DD" value="6" />
+          <span class="Error-display"></span>
+        </p>
+
+        <p class="date-label">
+          Month<br />
+          <input type="text" class="date-input" placeholder="MM" value="10" />
+          <span class="Error-display"></span>
+        </p>
+        <p class="date-label">
+          Year<br />
+          <input
+            type="text"
+            class="date-input"
+            placeholder="YYYY"
+            value="2000"
+          />
+          <span class="Error-display"></span>
+        </p>
+      </div>
+      <hr />
+      <div id="clac-button" onclick="get_time()">
+        <img src="./assets/images/icon-arrow.svg" alt="" />
+      </div>
+      <div id="calculated-area">
+        <p><span class="calc-date">--</span>years</p>
+        <p><span class="calc-date">--</span>months</p>
+        <p><span class="calc-date">--</span>days</p>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Tulza</a>.
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
