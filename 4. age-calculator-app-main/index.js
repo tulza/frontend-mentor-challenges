@@ -31,7 +31,7 @@ const get_time = () => {
     const monthValue = parseInt(month.value);
     const yearValue = parseInt(year.value);
 
-    log_all_input();
+    // log_all_input();
 
     for (let i = 0; i < dateInput.length; i++) {
       dateValue = dateInput[i].value;
@@ -62,7 +62,6 @@ const get_time = () => {
         dateInput[i].style.outline = "1px solid hsl(0, 100%, 67%)";
       }
     }
-    console.log(dayValue, "wa", new Date(yearValue, monthValue, 0).getDate());
 
     if (hasError) {
       throw new Error("Input Error");
@@ -78,31 +77,27 @@ const get_time = () => {
 
     const birthDate = new Date(`${yearValue}.${monthValue}.${dayValue}`);
 
-    console.log(birthDate);
-    if (birthDate.getTime() > currTime.getTime()) {
-      console.log("this is in the future");
-    } else {
-      ageYear = currTime.getFullYear() - birthDate.getFullYear();
-      ageMonth = currTime.getMonth() - birthDate.getMonth();
-      ageDay = currTime.getDay() - birthDate.getDay();
+    ageYear = currTime.getFullYear() - birthDate.getFullYear();
+    ageMonth = currTime.getMonth() - birthDate.getMonth();
+    ageDay = currTime.getDate() - birthDate.getDate();
 
-      if (ageMonth < 0 || (ageMonth === 0 && ageDay < 0)) {
-        ageYear--;
-        ageMonth = 12 + ageMonth;
-      }
-
-      if (ageDay < 0) {
-        ageDay += new Date(
-          currTime.getFullYear(),
-          currTime.getMonth(),
-          0
-        ).getDate();
-      }
-
-      calcDate[0].innerHTML = ageYear;
-      calcDate[1].innerHTML = ageMonth;
-      calcDate[2].innerHTML = ageDay;
+    if (ageMonth < 0 || (ageMonth === 0 && ageDay < 0)) {
+      ageYear--;
+      ageMonth = 12 + ageMonth;
     }
+
+    if (ageDay < 0) {
+      ageMonth--;
+      ageDay += new Date(
+        currTime.getFullYear(),
+        currTime.getMonth(),
+        0
+      ).getDate();
+    }
+
+    calcDate[0].innerHTML = ageYear;
+    calcDate[1].innerHTML = ageMonth;
+    calcDate[2].innerHTML = ageDay;
   } catch (err) {
     calcDate[0].innerHTML = "--";
     calcDate[1].innerHTML = "--";
