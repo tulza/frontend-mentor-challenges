@@ -24,30 +24,59 @@ const clearError = () => {
 const get_time = () => {
   try {
     clearError();
+    const currTime = new Date();
     let hasError = false;
     const dayValue = parseInt(day.value);
     const monthValue = parseInt(month.value);
     const yearValue = parseInt(year.value);
 
     log_all_input();
-    console.log(dayValue);
 
     for (let i = 0; i < dateInput.length; i++) {
       dateValue = dateInput[i].value;
-      console.log(dateValue);
+      localError = false;
       if (isNaN(parseInt(dateValue))) {
         hasError = true;
-        dateInput[i].style.outline = "1px solid hsl(0, 100%, 67%)";
+        localError = true;
         ErrorDisplay[i].innerHTML = "This field is required";
       }
+      if (i == 0 && (1 > dateValue || dateValue > 31)) {
+        hasError = true;
+        localError = true;
+        ErrorDisplay[i].innerHTML = "Must be a valid day";
+      }
+      if (i == 1 && (1 > dateValue || dateValue > 12)) {
+        hasError = true;
+        localError = true;
+        ErrorDisplay[i].innerHTML = "Must be a valid month";
+      }
+      if (i == 2 && new Date().getFullYear() < dateValue) {
+        hasError = true;
+        localError = true;
+        ErrorDisplay[i].innerHTML = "Must be in the past";
+      }
+
+      if (localError) {
+        dateInput[i].style.outline = "1px solid hsl(0, 100%, 67%)";
+      }
     }
+    console.log(dayValue, "wa", new Date(yearValue, monthValue, 0).getDate());
 
     if (hasError) {
-      throw new Error("wa");
+      throw new Error("Input Error");
     }
-    const currTime = new Date();
+    // check for invalid date
+    else if (new Date(yearValue, monthValue, 0).getDate() < dayValue) {
+      for (let i = 0; i < dateInput.length; i++) {
+        dateInput[i].style.outline = "1px solid hsl(0, 100%, 67%)";
+      }
+      ErrorDisplay[0].innerHTML = "Must a valid date";
+      throw new Error("Invalid date");
+    }
+
     const birthDate = new Date(`${yearValue}.${monthValue}.${dayValue}`);
 
+    console.log(birthDate);
     if (birthDate.getTime() > currTime.getTime()) {
       console.log("this is in the future");
     } else {
