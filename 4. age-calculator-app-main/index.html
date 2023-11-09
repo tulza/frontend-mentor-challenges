@@ -20,22 +20,22 @@
     <div id="calculator-box" className="bg-black">
       <div id="inputs-field">
         <!-- input field area -->
-        <p class="date-label">
-          Day<br />
+        <div>
+          <p class="date-label">day</p>
           <input type="text" class="date-input" placeholder="DD" value="" />
-          <span class="Error-display"></span>
-        </p>
+          <p class="Error-display"></p>
+        </div>
 
-        <p class="date-label">
-          Month<br />
+        <div>
+          <p class="date-label">Month</p>
           <input type="text" class="date-input" placeholder="MM" value="" />
-          <span class="Error-display"></span>
-        </p>
-        <p class="date-label">
-          Year<br />
+          <p class="Error-display"></p>
+        </div>
+        <div>
+          <p class="date-label">year</p>
           <input type="text" class="date-input" placeholder="YYYY" value="" />
-          <span class="Error-display"></span>
-        </p>
+          <p class="Error-display"></p>
+        </div>
       </div>
       <hr />
       <div id="clac-button" onclick="get_time()">

@@ -17,6 +17,7 @@ const log_all_input = () => {
 const clearError = () => {
   for (let i = 0; i < ErrorDisplay.length; i++) {
     ErrorDisplay[i].innerHTML = "";
+    dateLabel[i].style.color = "hsl(0, 1%, 44%)";
     dateInput[i].style.outline = "1px solid hsl(0, 0%, 86%)";
   }
 };
@@ -57,6 +58,7 @@ const get_time = () => {
       }
 
       if (localError) {
+        dateLabel[i].style.color = "hsl(0, 100%, 67%)";
         dateInput[i].style.outline = "1px solid hsl(0, 100%, 67%)";
       }
     }

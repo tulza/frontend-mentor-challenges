@@ -122,6 +122,7 @@ input::placeholder {
   text-transform: uppercase;
   letter-spacing: 4px;
   color: var(--Smokey-grey);
+  transition: color 0.2s;
 }
 
 .attribution {
