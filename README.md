@@ -9,6 +9,8 @@ https://tulza.github.io/frontend-mentor-challenges/
 
 3.https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db
 
+4.https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q
+
 # Completed challenges
 
 1.https://www.frontendmentor.io/solutions/static-qr-code-component-OIsq_Go7Ds
@@ -16,3 +18,5 @@ https://tulza.github.io/frontend-mentor-challenges/
 2.https://www.frontendmentor.io/solutions/responsive-rummary-component-7Cau7XodDJ
 
 3.https://www.frontendmentor.io/solutions/basic-advice-generator-htmlcssjsapi-UrozUkzY5M
+
+4.https://www.frontendmentor.io/solutions/responsive-age-calculator-ODuH_TfBA5

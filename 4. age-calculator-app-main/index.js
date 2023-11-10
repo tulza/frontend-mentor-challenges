@@ -94,14 +94,84 @@ const get_time = () => {
         0
       ).getDate();
     }
-
-    calcDate[0].innerHTML = ageYear;
-    calcDate[1].innerHTML = ageMonth;
-    calcDate[2].innerHTML = ageDay;
+    updateDateNum(calcDate, ageDay, ageMonth, ageYear, false);
   } catch (err) {
-    calcDate[0].innerHTML = "--";
-    calcDate[1].innerHTML = "--";
-    calcDate[2].innerHTML = "--";
+    updateDateNum(calcDate, "--", "--", "--", true);
     console.log(err);
+  }
+};
+
+const updateDateNum = (
+  calcDate,
+  newDay = "--",
+  newMonth = "--",
+  newYear = "--",
+  isError = false
+) => {
+  newDate = [newYear, newMonth, newDay];
+  //speed of the counter
+  let interval = 500;
+  //step of counter = num/ stepMultiplier
+  let stepDivider = 95;
+  // error set all value to --
+  if (isError) {
+    Array.from(calcDate).forEach((elem) => {
+      let startValue = parseInt(elem.textContent);
+      let endValue = 0;
+
+      if (!isNaN(startValue) && startValue > 0) {
+        const duration = Math.floor(interval / startValue);
+        const step = Math.ceil(startValue / stepDivider);
+        let counter = setInterval(() => {
+          elem.textContent = parseInt(elem.textContent) - step;
+          //stop when number is <=0
+          if (parseInt(elem.textContent) <= endValue) {
+            elem.textContent = "--";
+            clearInterval(counter);
+          }
+        }, duration);
+      } else {
+        elem.textContent = "--";
+      }
+    });
+  } else {
+    for (let i = 0; i < calcDate.length; i++) {
+      const curr = calcDate[i];
+      let startValue = parseInt(curr.textContent);
+      let endValue = newDate[i];
+      // if starting is bigger num go down
+      if (startValue > endValue) {
+        difference = startValue - endValue;
+        const step = Math.ceil(difference / stepDivider);
+        const duration = Math.floor(interval / difference);
+        let counter = setInterval(() => {
+          curr.textContent = parseInt(curr.textContent) - step;
+          //stop when number is ;e endValue
+          if (parseInt(curr.textContent) <= endValue) {
+            curr.textContent = endValue;
+            clearInterval(counter);
+          }
+        }, duration);
+      }
+      // if starting is smaller num go up
+      else {
+        if (isNaN(startValue)) {
+          startValue = 0;
+          curr.textContent = 0;
+        }
+        difference = endValue - startValue;
+        const step = Math.ceil(difference / stepDivider);
+        const duration = Math.floor(interval / difference);
+
+        let counter = setInterval(() => {
+          curr.textContent = parseInt(curr.textContent) + step;
+          //stop when number is ge endValue
+          if (parseInt(curr.textContent) >= endValue) {
+            curr.textContent = endValue;
+            clearInterval(counter);
+          }
+        }, duration);
+      }
+    }
   }
 };
